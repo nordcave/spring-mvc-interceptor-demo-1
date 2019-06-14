@@ -36,13 +36,13 @@
 </head>
 <body>
 <!-- Overriding color -->
-	<h2 style="color: #DF0101"> 	
-		<c:out value="${greeting}"></c:out>
+	<h2 style="color: #DF0101; text-align:center"><c:out value="${greeting}"></c:out>
 	</h2>
 	<hr/>
+	<div style="text-align:center">
 	<h2>Submit your location for a list of Organization</h2>
 	
-	<div style="text-align:center">
+	
 		<form action="listOrgs">
 			<input type="text" name="locationName"><br/>
 			<input type="submit" name="Get Organizations"><br/>

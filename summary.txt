@@ -1,0 +1,31 @@
+Highlights and what actually was done here:
+
+	1. The HandlerMapping  informs the DispatcherServlet, which handler (i.e controller) method to invoke based on the request URL;
+	2. The Dispatcher Servlet delegates the task of invoking the right handler method to the HandlerAdapter;
+	3. There are three methods of HandlerInterceptor interface - preHandler(), postHandle(), afterCompletion(). First one was implemented here.
+	
+	HandlerInterceptor:
+		-	Was set two atributes - "location" and "locastionName" that were later retreived in the JSPs;
+		
+	OrganizationController:
+		-	Edited existing OrganizationController and added the addLocation handler method that intercepted the request URL "/location" and
+			routed the call for rending location.jsp
+		-	Added handler listOrganizations that intercepted the request url "/listOrgs" - this retrieved the list of organizations
+			from the service layer and added it to the model attribute "orgList" and then routed the call to render listOrganizations.jsp;
+			
+	WebMvcConfig:
+		-	Was edited existing WebMvcConfig.java to add the methods addViewControllers(), addInterceptors().
+		
+	JSPs:
+		-	Creted home.jsp using inline styling;
+		-	location.jsp, using <style> element in the <head> section where configured styles applied to all elements in the page; 
+			this was an improvement over the inline styling. location.jsp displayed a tiny form where the user could enter the location
+			whose organisation list he is interested in;
+		-	Created listOrganizations.jsp with mixed inline and internal styling - displayed the list of organizations from database via the service layer;
+		
+	Used several classes from earlier projects which were not edited:
+		-	WebMvcInitializer, Java config class an alternative to web.xml;
+		-	OrganizationDao, OrganizationDaoImpl - the DAO layer classes;
+		- 	OrganizationRowMapper, JDBC utility class for mapping database rows to objects;
+		- 	Organization, domain project.
+	
