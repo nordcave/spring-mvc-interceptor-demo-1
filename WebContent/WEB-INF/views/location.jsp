@@ -35,7 +35,8 @@
 
 </head>
 <body>
-	<h2 style="color: #DF0101">
+<!-- Overriding color -->
+	<h2 style="color: #DF0101"> 	
 		<c:out value="${greeting}"></c:out>
 	</h2>
 	<hr/>
